@@ -12,11 +12,9 @@ import java.util.List;
 
 public class CreateFeedbackInBoardCommand implements Command {
 
-    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 5;
-
-    private static final String FEEDBACK_CREATE_MESSAGE = "Feedback with ID %d was created in board %s of team %s.";
     public static final String INVALID_RATING = "Invalid rating!";
-
+    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 5;
+    private static final String FEEDBACK_CREATE_MESSAGE = "Feedback with ID %d was created in board %s of team %s.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
 

@@ -9,10 +9,9 @@ import java.util.List;
 
 public class CreateTeamCommand implements Command {
 
+    public static final String TEAM_EXISTS_ERROR = "Team with that name already exists!";
     private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private static final String TEAM_CREATE_MESSAGE = "Team with name %s was created successfully.";
-    public static final String TEAM_EXISTS_ERROR = "Team with that name already exists!";
-
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     private String name;

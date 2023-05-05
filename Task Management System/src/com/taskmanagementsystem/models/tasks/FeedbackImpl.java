@@ -26,6 +26,10 @@ public class FeedbackImpl extends TaskBase implements Feedback {
         return rating;
     }
 
+    private void setRating(int rating) {
+        this.rating = rating;
+    }
+
     @Override
     public FeedbackStatus getStatus() {
         return status;
@@ -72,10 +76,6 @@ public class FeedbackImpl extends TaskBase implements Feedback {
             }
         }
         return stringBuilder.toString().trim();
-    }
-
-    private void setRating(int rating) {
-        this.rating = rating;
     }
 
     private void setFeedbackStatus(FeedbackStatus status) {

@@ -16,9 +16,9 @@ public class MemberImpl implements Member {
     public static final int NAME_MAX_LENGTH = 15;
     public static final String NAME_ERROR_MESSAGE =
             String.format("Person name should be between %d and %d symbols.", NAME_MIN_LENGTH, NAME_MAX_LENGTH);
-    private String name;
     private final List<Task> tasks;
     private final List<History> histories = new ArrayList<>();
+    private String name;
 
     public MemberImpl(String name) {
         setName(name);
@@ -30,6 +30,11 @@ public class MemberImpl implements Member {
     @Override
     public String getName() {
         return name;
+    }
+
+    private void setName(String name) {
+        ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_ERROR_MESSAGE);
+        this.name = name;
     }
 
     @Override
@@ -62,10 +67,5 @@ public class MemberImpl implements Member {
             sb.append(history.viewInfo()).append(System.lineSeparator());
         }
         return sb.toString().trim();
-    }
-
-    private void setName(String name) {
-        ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_ERROR_MESSAGE);
-        this.name = name;
     }
 }

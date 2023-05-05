@@ -17,24 +17,23 @@ public class CommentImpl implements Comment {
         return message;
     }
 
+    private void setMessage(String message) {
+        this.message = message;
+    }
+
     @Override
     public String getAuthor() {
         return author;
     }
 
-    @Override
-    public String toString() {
-        String stringBuilder = String.format("Message: %s", getMessage()) +
-                System.lineSeparator() +
-                String.format("Author: %s", getAuthor());
-        return stringBuilder;
-    }
-
-    private void setMessage(String message) {
-        this.message = message;
-    }
-
     private void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Message: %s", getMessage()) +
+                System.lineSeparator() +
+                String.format("Author: %s", getAuthor());
     }
 }

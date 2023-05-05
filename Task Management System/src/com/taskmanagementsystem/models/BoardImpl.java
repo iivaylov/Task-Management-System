@@ -44,9 +44,18 @@ public class BoardImpl implements Board {
         return team;
     }
 
+    private void setTeam(Team team) {
+        this.team = team;
+    }
+
     @Override
     public String getName() {
         return name;
+    }
+
+    private void setName(String name) {
+        validateStringLength(name, BOARD_MIN_LENGTH, BOARD_MAX_LENGTH, BOARD_ERROR_MESSAGE);
+        this.name = name;
     }
 
     @Override
@@ -141,15 +150,6 @@ public class BoardImpl implements Board {
             }
         }
         return sb.toString();
-    }
-
-    private void setTeam(Team team) {
-        this.team = team;
-    }
-
-    private void setName(String name) {
-        validateStringLength(name, BOARD_MIN_LENGTH, BOARD_MAX_LENGTH, BOARD_ERROR_MESSAGE);
-        this.name = name;
     }
 
     private String viewInfo() {

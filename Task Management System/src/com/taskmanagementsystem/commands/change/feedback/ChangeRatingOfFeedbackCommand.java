@@ -10,10 +10,10 @@ import java.util.List;
 
 public class ChangeRatingOfFeedbackCommand implements Command {
 
-    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
     public static final String INVALID_FEEDBACK_ID = "Invalid feedback ID!";
     public static final String INVALID_RATING = "Invalid rating!";
     public static final String RATING_CHANGED = "Rating of feedback with ID %d was changed to %d.";
+    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeRatingOfFeedbackCommand(TaskManagementSystemRepository taskManagementSystemRepository) {

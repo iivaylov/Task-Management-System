@@ -21,14 +21,14 @@ public abstract class TaskBase implements Task {
     public static final String DESCRIPTION_ERROR_MESSAGE = String.format
             ("Description length should be between %d and %d symbols!",
                     DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH);
+    private final List<Comment> comments;
+    private final List<History> changesHistory;
     private int id;
     private String title;
     private String description;
-    private final List<Comment> comments;
-    private final List<History> changesHistory;
 
 
-    public TaskBase(int id, String title, String description) {
+    protected TaskBase(int id, String title, String description) {
         setId(id);
         setTitle(title);
         setDescription(description);
@@ -41,14 +41,28 @@ public abstract class TaskBase implements Task {
         return id;
     }
 
+    private void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String getTitle() {
         return title;
     }
 
+    private void setTitle(String title) {
+        validateStringLength(title, TITLE_MIN_LENGTH, TITLE_MAX_LENGTH, TITLE_ERROR_MESSAGE);
+        this.title = title;
+    }
+
     @Override
     public String getDescription() {
         return description;
+    }
+
+    private void setDescription(String description) {
+        validateStringLength(description, DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH, DESCRIPTION_ERROR_MESSAGE);
+        this.description = description;
     }
 
     @Override
@@ -71,28 +85,12 @@ public abstract class TaskBase implements Task {
         changesHistory.add(history);
     }
 
-
     @Override
     public String toString() {
-        String sb = String.format("ID: %d", getId()) +
+        return String.format("ID: %d", getId()) +
                 System.lineSeparator() +
                 String.format("Title: %s", getTitle()) +
                 System.lineSeparator() +
                 String.format("Description: %s", getDescription());
-        return sb;
-    }
-
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setTitle(String title) {
-        validateStringLength(title, TITLE_MIN_LENGTH, TITLE_MAX_LENGTH, TITLE_ERROR_MESSAGE);
-        this.title = title;
-    }
-
-    private void setDescription(String description) {
-        validateStringLength(description, DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH, DESCRIPTION_ERROR_MESSAGE);
-        this.description = description;
     }
 }

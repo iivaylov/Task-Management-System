@@ -10,11 +10,9 @@ import com.taskmanagementsystem.utils.ValidationHelpers;
 import java.util.List;
 
 public class CreateBoardInTeamCommand implements Command {
-    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
-
-    private static final String BOARD_CREATE_MESSAGE = "Board with name %s was created successfully in team %s.";
     public static final String BOARD_EXISTS_MESSAGE = "Board with that name already exists in this team!";
-
+    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
+    private static final String BOARD_CREATE_MESSAGE = "Board with name %s was created successfully in team %s.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateBoardInTeamCommand(TaskManagementSystemRepository taskManagementSystemRepository) {

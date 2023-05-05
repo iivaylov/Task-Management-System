@@ -20,22 +20,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemRepository {
-    // TODO: 17.12.2022 г. Implement all methods
-    private static final String NO_SUCK_TEAM_NAME = "There is no team with name %s!";
-    private static final String NO_SUCH_BOARD_NAME = "There is no board with name %s!";
-    private static final String NO_MEMBER_MESSAGE = "There is no member with name %s!";
     public static final String BOARD_ERROR = "There is no board with name %s in team %s!";
     public static final String TEAM_MEMBER_ERROR = "There is no member with name %s in team %s!";
     public static final String TASKS_IN_BOARD_ERROR = "There is no task with id %d in board %s!";
     public static final String NO_ID_RECORD = "No record with ID %d";
-    //    public static final String NO_TASK_ID_MESSAGE = "There is no task with id %d!";
-    private int nextId;
+    private static final String NO_SUCK_TEAM_NAME = "There is no team with name %s!";
+    private static final String NO_SUCH_BOARD_NAME = "There is no board with name %s!";
+    private static final String NO_MEMBER_MESSAGE = "There is no member with name %s!";
     private final List<Team> teams = new ArrayList<>();
     private final List<Board> boards = new ArrayList<>();
     private final List<Member> members = new ArrayList<>();
     private final List<Bug> bugs = new ArrayList<>();
     private final List<Story> stories = new ArrayList<>();
     private final List<Feedback> feedbacks = new ArrayList<>();
+    private int nextId;
 
     public TaskManagementSystemRepositoryImpl() {
         nextId = 0;
@@ -188,7 +186,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public Bug createBug(Team team, Board board, String title, String description, List<String> steps,
                          Priority priority, Severity severity, Member assignee) {
         Bug bug = new BugImpl(++nextId, title, description, steps, priority, severity, assignee);
-        /*   tasks.add(bug);*/
         bugs.add(bug);
         return bug;
     }
@@ -197,7 +194,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public Story createStory(Team team, Board board, String title, String description, Priority priority,
                              StorySize size, Member assignee) {
         Story story = new StoryImpl(++nextId, title, description, priority, size, assignee);
-        /* tasks.add(story);*/
         stories.add(story);
         return story;
     }
@@ -205,7 +201,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public Feedback createFeedback(Team team, Board board, String title, String description, int rating) {
         Feedback feedback = new FeedbackImpl(++nextId, title, description, rating);
-        /*   tasks.add(feedback);*/
         feedbacks.add(feedback);
         return feedback;
     }

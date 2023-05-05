@@ -9,7 +9,7 @@ public abstract class AbstractTaskBase extends TaskBase implements AbstractTask 
     private Priority priority;
     private Member assignee;
 
-    public AbstractTaskBase(int id, String title, String description, Priority priority, Member assignee) {
+    protected AbstractTaskBase(int id, String title, String description, Priority priority, Member assignee) {
         super(id, title, description);
         setPriority(priority);
         setAssignee(assignee);
@@ -20,9 +20,17 @@ public abstract class AbstractTaskBase extends TaskBase implements AbstractTask 
         return priority;
     }
 
+    private void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
     @Override
     public Member getAssignee() {
         return assignee;
+    }
+
+    private void setAssignee(Member assignee) {
+        this.assignee = assignee;
     }
 
     @Override
@@ -43,19 +51,10 @@ public abstract class AbstractTaskBase extends TaskBase implements AbstractTask 
 
     @Override
     public String toString() {
-        String sb = String.format("%s", super.toString()) +
+        return String.format("%s", super.toString()) +
                 System.lineSeparator() +
                 String.format("Priority: %s", getPriority()) +
                 System.lineSeparator() +
                 String.format("Assignee: %s", getAssignee().getName());
-        return sb;
-    }
-
-    private void setPriority(Priority priority) {
-        this.priority = priority;
-    }
-
-    private void setAssignee(Member assignee) {
-        this.assignee = assignee;
     }
 }

@@ -29,9 +29,17 @@ public class StoryImpl extends AbstractTaskBase implements Story {
         return size;
     }
 
+    private void setSize(StorySize size) {
+        this.size = size;
+    }
+
     @Override
     public StoryStatus getStatus() {
         return status;
+    }
+
+    private void setStatus(StoryStatus status) {
+        this.status = status;
     }
 
     @Override
@@ -70,13 +78,5 @@ public class StoryImpl extends AbstractTaskBase implements Story {
             }
         }
         return stringBuilder.toString();
-    }
-
-    private void setSize(StorySize size) {
-        this.size = size;
-    }
-
-    private void setStatus(StoryStatus status) {
-        this.status = status;
     }
 }

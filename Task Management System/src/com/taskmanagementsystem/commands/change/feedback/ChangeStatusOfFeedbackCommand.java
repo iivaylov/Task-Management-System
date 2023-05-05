@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ChangeStatusOfFeedbackCommand implements Command {
 
-    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     public static final String INVALID_FEEDBACK_ID = "Invalid feedback ID!";
     public static final String STATUS_CHANGED_FEEDBACK = "Status of feedback with ID %d was changed to %s.";
+    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeStatusOfFeedbackCommand(TaskManagementSystemRepository taskManagementSystemRepository) {

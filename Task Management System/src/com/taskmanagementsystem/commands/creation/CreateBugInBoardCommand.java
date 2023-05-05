@@ -15,12 +15,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CreateBugInBoardCommand implements Command {
-    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 8;
-
-    private static final String BUG_CREATE_MESSAGE = "Bug with ID %d was created in board %s of team %s.";
     public static final String INVALID_PRIORITY = "Invalid priority!";
     public static final String INVALID_SEVERITY = "Invalid severity!";
-
+    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 8;
+    private static final String BUG_CREATE_MESSAGE = "Bug with ID %d was created in board %s of team %s.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
 

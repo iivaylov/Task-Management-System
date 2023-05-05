@@ -16,10 +16,9 @@ public class BugImpl extends AbstractTaskBase implements Bug {
     private static final BugStatus FINAL_STATUS = BugStatus.FIXED;
 
     private static final String STATUS_CHANGE_ERROR = "The status cannot be changed! It is already fixed!";
-
+    private final List<String> steps;
     private Severity severity;
     private BugStatus status;
-    private final List<String> steps;
 
     public BugImpl(int id, String title, String description, List<String> steps,
                    Priority priority, Severity severity, Member assignee) {
@@ -34,9 +33,17 @@ public class BugImpl extends AbstractTaskBase implements Bug {
         return severity;
     }
 
+    private void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
+
     @Override
     public BugStatus getStatus() {
         return status;
+    }
+
+    private void setStatus(BugStatus status) {
+        this.status = status;
     }
 
     @Override
@@ -87,13 +94,5 @@ public class BugImpl extends AbstractTaskBase implements Bug {
             }
         }
         return stringBuilder.toString();
-    }
-
-    private void setSeverity(Severity severity) {
-        this.severity = severity;
-    }
-
-    private void setStatus(BugStatus status) {
-        this.status = status;
     }
 }

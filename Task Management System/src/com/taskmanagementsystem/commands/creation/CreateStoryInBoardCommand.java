@@ -14,11 +14,10 @@ import com.taskmanagementsystem.utils.ValidationHelpers;
 import java.util.List;
 
 public class CreateStoryInBoardCommand implements Command {
-    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 7;
-    private static final String STORY_CREATE_MESSAGE = "Story with ID %d was created in board %s of team %s.";
     public static final String INVALID_PRIORITY = "Invalid priority!";
     public static final String INVALID_STORY_SIZE = "Invalid story size!";
-
+    private static final int EXPECTED_NUMBER_OF_ARGUMENTS = 7;
+    private static final String STORY_CREATE_MESSAGE = "Story with ID %d was created in board %s of team %s.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateStoryInBoardCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
